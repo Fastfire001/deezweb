@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     sendForm() {
-      MusicService.request(this.title, this.order).then(allMusics => {
+      MusicService.search(this.title, this.order).then(allMusics => {
         this.musics = allMusics
         this.isFormSend = true
       })
