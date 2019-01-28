@@ -11,6 +11,12 @@ export default {
   name: 'app',
   components: {
     Navbar
+  },
+  created() {
+    let favs = localStorage.getItem("favs")
+    if (favs === null) {
+      localStorage.setItem('favs', JSON.stringify([]))
+    }
   }
 }
 </script>
