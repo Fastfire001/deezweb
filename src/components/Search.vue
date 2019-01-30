@@ -18,7 +18,7 @@
     </form>
     <hr>
     <div v-if="isFormSend">
-      <div v-if="musics.error">
+      <div v-if="musics.total === 0">
         <p>Aucun résultat pour cette recherche ...</p>
       </div>
       <div v-else class="musiccards">

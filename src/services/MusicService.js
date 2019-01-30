@@ -13,15 +13,5 @@ export default {
             return Promise.resolve(res)
         }
       })
-  },
-
-  findByMusiqueId(id) {
-    return fetchjsonp(`${API_ENDPOINT}track/${id}&output=jsonp`)
-      .then(res => res.json())
-      .then(res => {
-        if (!res.error) {
-          return Promise.resolve(res)
-        }
-      })
   }
 }

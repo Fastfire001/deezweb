@@ -34,7 +34,11 @@ export default {
     },
     created(){
       let favs = JSON.parse(localStorage.getItem("favs"))
-      this.isFav = favs.indexOf(this.music.id) !== -1
+      let music = this.music
+      let index = favs.find(function(element){
+        return music.id == element.id
+      })
+      this.isFav = index ? true : false
     },
     methods: {
       toggleFav() {
