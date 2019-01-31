@@ -8,7 +8,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "git branch -D gh-pages; npm run build; git checkout --orphan gh-pages; git rm -rf .; git add -f dist; git commit -m 'Déploiement du projet sur Github Pages'; git filter-branch -f --prune-empty --subdirectory-filter dist; git push -f origin gh-pages"
   },
   "dependencies": {
     "fetch-jsonp": "^1.1.3",
