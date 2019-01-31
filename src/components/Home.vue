@@ -47,5 +47,10 @@ export default {
 .t-a-c {
   text-align: center;
 }
+
+.music-card{
+  margin: auto;
+  width: fit-content;
+}
 </style>
 

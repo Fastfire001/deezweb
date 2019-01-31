@@ -3,10 +3,10 @@
     <h1>Recherche</h1>
     <p>Rechercher un titre sur Deezer en utilisant le formulaire suivant:</p>
     <hr>
-    <form @submit.prevent="sendForm">
+    <form @submit.prevent="sendForm" class="t-a-c">
       <label for="music-title-input">Titre:</label>
       <input name="title" id="music-title-input" type="text" v-model="title">
-      <label for="music-order-input">Rrier par:</label>
+      <label for="music-order-input">Trier par:</label>
       <select name="order" id="music-order-input" v-model="order">
         <option value="ALBUM_DESC">Album</option>
         <option value="ARTIST_DESC">Artiste</option>
@@ -18,11 +18,11 @@
     </form>
     <hr>
     <div v-if="isFormSend">
-      <div v-if="musics.total === 0">
-        <p>Aucun résultat pour cette recherche ...</p>
+      <div v-if="musics.total > 0" class="musiccards">
+        <MusicCard v-for="music in musics.data" v-bind:key="music.id" :music="music" @toggleFavEvent="toggleFav" class="card"/>
       </div>
-      <div v-else class="musiccards">
-        <MusicCard v-for="music in musics.data" v-bind:key="music.id" :music="music" @toggleFavEvent="toggleFav"/>
+      <div v-else>
+        <p>Aucun résultat pour cette recherche ...</p>
       </div>
     </div>
   </div>
@@ -64,6 +64,10 @@ export default {
 .musiccards{
   display: grid;
   grid-template-columns: repeat(3, 1fr)
+}
+
+.t-a-c{
+  text-align: center
 }
 </style>
 
